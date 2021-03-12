@@ -1,22 +1,15 @@
-import mysql from 'mysql';
-import { dev, production } from '../config';
-import {promisify} from 'util';
+import dotenv from 'dotenv';
+dotenv.config();
+import {createPool} from 'mysql2/promise';
 
-const pool = mysql.createPool({
-    host: production.host || dev.host,
-    user: production.user || dev.user,
-    password: production.password || dev.password,
-    database: production.password || dev.database
-})
-//editar
-pool.getConnection((err, connection) => {
-    if(err) return console.log(err);
+export const connect = _ => {
 
-    connection.release();
-    console.log('DB is running in id: ', connection.threadId);
-    return;
-})
-
-pool.query = promisify(pool.query);
-
-export default pool;
+    return createPool({
+        host: process.env.DB_HOST,
+        user: process.env.DB_USER,
+        password: process.env.DB_PASSWORD,
+        database: process.env.DB_NAME,
+        connectionLimit: 10
+    })
+    
+}

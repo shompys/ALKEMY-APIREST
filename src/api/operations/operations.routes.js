@@ -1,10 +1,16 @@
 import { Router } from 'express';
 const router = Router();
 
-router.post('/', () =>{})
-router.get('/', () =>{})
-router.get('/:id', () =>{})
-router.put('/:id', () =>{})
-router.delete('/:id', () =>{})
+import * as operationsControllers from './operations.controllers';
+
+router.post('/', operationsControllers.createOperation);
+
+router.get('/', operationsControllers.getOperations);
+
+router.get('/:id', operationsControllers.getOperationById);
+
+router.put('/:id', operationsControllers.updateOperationById);
+
+router.delete('/:id', operationsControllers.deleteOperationById);
 
 export default router;
