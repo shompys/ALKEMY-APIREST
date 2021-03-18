@@ -9,7 +9,7 @@ router.get('/', operationsControllers.getOperations);
 
 router.get('/:id', operationsControllers.getOperationById);
 
-router.put('/:id', operationsControllers.updateOperationById);
+router.patch('/:id', operationsControllers.updateOperationById);
 
 router.delete('/:id', operationsControllers.deleteOperationById);
 

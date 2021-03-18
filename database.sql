@@ -21,7 +21,7 @@ CREATE TABLE operations(
     -- user_id INT(50) NOT NULL,
     -- category_id INT(50) NOT NULL,
     concept VARCHAR(50) NOT NULL,
-    amount INT (50) NOT NULL,
+    amount FLOAT (50) NOT NULL,
     date TIMESTAMP NOT NULL DEFAULT current_timestamp,
     type TINYINT(1) NOT NULL,
     CONSTRAINT pk_operations PRIMARY KEY(id_operation)
@@ -29,7 +29,3 @@ CREATE TABLE operations(
     -- CONSTRAINT fk_operations_categories FOREIGN KEY(category_id) REFERENCES categories(id_category)
 
 )ENGINE=InnoDB;
-
-
-
--- INSERT INTO operations (user_id, category_id, concept, amount, type) VALUES (1,1,'comida',200, 1)
