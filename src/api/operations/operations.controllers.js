@@ -5,7 +5,7 @@ export const createOperation = async (req, res) => {
     try{
         const { user_id, category_id, concept, amount, type} = req.body;
         const con = connect();
-        const [rows, buf] = await con.query(`INSERT INTO operations (concept, amount, type) VALUES ('${concept}',${amount},${type})`);
+        await con.query(`INSERT INTO operations (concept, amount, type) VALUES ('${concept}',${amount},${type})`)
         res.status(201).json({data: 'ok'});
     }
     catch(e){
@@ -18,7 +18,6 @@ export const getOperations = async (req, res) => {
     try{
         const con = connect();
         const [rows, buf] = await con.query('SELECT * FROM operations ORDER BY date ASC')
-        console.log(rows);
         res.status(200).json(rows)
     }catch(e){
         res.status(500).json({error: 'error'})

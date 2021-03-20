@@ -2,19 +2,19 @@ DROP DATABASE alkemy;
 CREATE DATABASE alkemy;
 USE alkemy;
 
-CREATE TABLE users(
-    id_user INT(50) auto_increment NOT NULL,
-    email VARCHAR(50) NOT NULL,
-    password VARCHAR(255) NOT NULL,
-    CONSTRAINT pk_users PRIMARY KEY(id_user),
-    CONSTRAINT uq_email UNIQUE(email)
-)ENGINE=InnoDB;
+-- CREATE TABLE users(
+--     id_user INT(50) auto_increment NOT NULL,
+--     email VARCHAR(50) NOT NULL,
+--     password VARCHAR(255) NOT NULL,
+--     CONSTRAINT pk_users PRIMARY KEY(id_user),
+--     CONSTRAINT uq_email UNIQUE(email)
+-- )ENGINE=InnoDB;
 
-CREATE TABLE categories(
-    id_category INT(50) auto_increment NOT NULL,
-    description VARCHAR(50) NOT NULL,
-    CONSTRAINT pk_categories PRIMARY KEY(id_category)
-)ENGINE=InnoDB;
+-- CREATE TABLE categories(
+--     id_category INT(50) auto_increment NOT NULL,
+--     description VARCHAR(50) NOT NULL,
+--     CONSTRAINT pk_categories PRIMARY KEY(id_category)
+-- )ENGINE=InnoDB;
 
 CREATE TABLE operations(
     id_operation INT(50) auto_increment NOT NULL,
